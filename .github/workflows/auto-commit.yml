@@ -2,8 +2,8 @@ name: Daily Auto Commit
 
 on:
   schedule:
-    - cron: "0 0 * * *"  # Runs daily at midnight UTC
-  workflow_dispatch:  # Enables manual trigger
+    - cron: "30 5 * * *"  # Runs daily at 5:30 AM UTC (change as needed)
+  workflow_dispatch:  # Allows manual execution
 
 jobs:
   commit:
@@ -13,16 +13,16 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Git
+      - name: Configure Git (21f3001176@ds.study.iitm.ac.in)
         run: |
           git config --global user.name "GitHub Actions Bot"
           git config --global user.email "21f3001176@ds.study.iitm.ac.in"
 
-      - name: Make a change
+      - name: Make a change (21f3001176@ds.study.iitm.ac.in)
         run: |
           echo "Last updated on $(date)" > update_log.txt
 
-      - name: Commit and push changes
+      - name: Commit and push changes (21f3001176@ds.study.iitm.ac.in)
         run: |
           git add update_log.txt
           git commit -m "Automated commit: $(date)"
